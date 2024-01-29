@@ -1,0 +1,35 @@
+* {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+.root {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.post__inputs {
+    padding: 30px 30px 50px 0px;
+}
+.post__btn {
+    color: white;
+    background-color: #010101;
+    border-radius: 5px;
+    padding: 10px 20px;
+}
+
+#post__title,
+#post__body {
+    border: 0;
+    border-bottom: 1px solid grey;
+    padding: 7px 7px;
+    margin-right: 20px;
+    max-width: 160px;
+}
+
+.post__title {
+    font-weight: 700;
+    color: rgb(65, 9, 117);
+    margin-bottom: 20px;
+}
+.post {
+    margin-bottom: 30px;
+}
