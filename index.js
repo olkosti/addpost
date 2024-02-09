@@ -31,7 +31,6 @@ function addPost() {
         pBody.classList.add('post__body');
         pBody.textContent = json.body;
         divPost.appendChild(pBody);
-
     })
     .catch(err => console.log('Ошибка: ' + err));
 }
