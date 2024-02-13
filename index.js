@@ -4,7 +4,23 @@ const title = document.querySelector('#post__title');
 const body = document.querySelector('#post__body');
 const form = document.querySelector('.form');
 
-function addPost() {
+function addPost(title, body) {
+    const divPost = document.createElement('div');
+    divPost.classList.add('post');
+    posts.appendChild(divPost)
+
+    const pTitle = document.createElement('p');
+    pTitle.classList.add('post__title');
+    pTitle.textContent = title;
+    divPost.appendChild(pTitle);
+
+    const pBody = document.createElement('p');
+    pBody.classList.add('post__body');
+    pBody.textContent = body;
+    divPost.appendChild(pBody);
+}
+
+function showPost() {
     fetch('https://jsonplaceholder.typicode.com/posts', {
         method: 'POST',
         body: JSON.stringify({
@@ -18,25 +34,13 @@ function addPost() {
     })
     .then(response => response.json())
     .then((json) => {
-        const divPost = document.createElement('div');
-        divPost.classList.add('post');
-        posts.appendChild(divPost)
-
-        const pTitle = document.createElement('p');
-        pTitle.classList.add('post__title');
-        pTitle.textContent = json.title;
-        divPost.appendChild(pTitle);
-
-        const pBody = document.createElement('p');
-        pBody.classList.add('post__body');
-        pBody.textContent = json.body;
-        divPost.appendChild(pBody);
+        addPost(json.title, json.body);
     })
     .catch(err => console.log('Ошибка: ' + err));
 }
 
 btn.addEventListener('click',  function(event) {
     event.preventDefault();
-    addPost();
+    showPost();
     form.reset();
 });
